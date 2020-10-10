@@ -1,10 +1,20 @@
 <template>
   <div id="map">
-    <!--In the following div the HERE Map will render-->
-    <div id="mapContainer" style="height: 500px; width: 100%" ref="hereMap"></div>
-    <b-button variant="primary" class="mt-3 primary btn-block" @click="createRoute">
-      Проложить маршрут
-    </b-button>
+    <b-container fluid class="p-0">
+      <header class="header">
+        Соревнование
+
+        <svg width="20" height="28" class="backButton" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.4393 12.9393L6.99998 4.5C6.4477 3.94771 5.55227 3.94771 4.99998 4.5C4.4477 5.05228 4.4477 5.94771 4.99998 6.5L12.5 14L4.99998 21.5C4.4477 22.0523 4.4477 22.9477 4.99998 23.5C5.55227 24.0523 6.4477 24.0523 6.99998 23.5L15.4393 15.0607C16.0251 14.4749 16.0251 13.5251 15.4393 12.9393Z" fill="#3F8AE0"/>
+        </svg>
+      </header>
+
+
+      <div id="mapContainer" class="w-100 h-100" ref="hereMap"></div>
+      <b-button variant="primary" class="primary" @click="createRoute">
+        Проложить маршрут
+      </b-button>
+    </b-container>
   </div>
 </template>
 
@@ -15,7 +25,7 @@ export default {
     return {
       platform: null,
       app_id: 'khnsdv2IWZS2FuTdJCbH',
-      apikey: "81OcyI2i4uyi5m-QzZ58U8J2Sm5gc1VA4-zBa6pwysc",
+      apikey: "kXJLOsUqIDBiL9E3YeHpDqVOX2WOENM2yOAkzd-yq78",
       center: { lat: 40.730610, lng: -73.935242 },
       userPosition: {}
     };
@@ -157,12 +167,35 @@ export default {
 
 <style scoped>
 #map {
-  width: 60vw;
-  min-width: 320px;
-  text-align: center;
-  padding-top: 30px;
-  margin: auto;
+  width: 100%;
+  height: calc(100vh - 60px);
   display: flex;
   flex-wrap: wrap;
+}
+
+.header {
+  font-family: 'TT Commons', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 26px;
+  color: #000000;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backButton {
+  transform: rotate(180deg);
+  position: absolute;
+  left: 8px;
+}
+
+.primary {
+  position: absolute;
+  bottom: 10px;
+  z-index: 1100;
+  width: calc(100% - 20px);
 }
 </style>

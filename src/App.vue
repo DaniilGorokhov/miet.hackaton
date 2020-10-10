@@ -27,7 +27,12 @@ export default {
         lng: -73.935242
       }
     }
-  }
+  },
+  watch: {
+    '$route' (to) {
+      document.title = to.meta.title || 'Stonks';
+    }
+  },
 }
 </script>
 
