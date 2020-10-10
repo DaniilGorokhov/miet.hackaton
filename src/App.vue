@@ -1,25 +1,30 @@
 <template>
   <div id="app">
-    <HereMap  :center="center" />
+    <router-view></router-view>
+    <h1>Hello</h1>
   </div>
 </template>
 
 <script>
-import HereMap from './components/map'
+import VueRouter from "vue-router";
+import BootstrapVue from "bootstrap-vue";
+import Vue from "vue";
+
+Vue.use(VueRouter);
+Vue.use(BootstrapVue);
+
 export default {
   name: 'app',
   components: {
-    HereMap
+    // HereMap
   },
   data() {
     return {
-      // we are this as prop to the HereMap component
       center:{
         lat: 40.730610,
         lng: -73.935242
       }
     }
-
   }
 }
 </script>
