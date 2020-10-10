@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <h1>Hello</h1>
   </div>
 </template>
 
@@ -9,6 +8,9 @@
 import VueRouter from "vue-router";
 import BootstrapVue from "bootstrap-vue";
 import Vue from "vue";
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
@@ -30,12 +32,16 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.primary {
+  height: 60px;
+  background: #017AFF;
+  border-radius: 12px;
+  margin: 0 12px;
+  font-family: SF Pro Text, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #FFFFFF;
 }
 </style>
