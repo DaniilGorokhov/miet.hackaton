@@ -11,11 +11,67 @@
 
 
       <div id="mapContainer" class="w-100 h-100" ref="hereMap"></div>
-      <b-button variant="primary" class="primary" @click="createRoute">
-        Проложить маршрут
-      </b-button>
+      <b-button v-b-modal.modalCheck variant="primary" class="primary">xl modal</b-button>
     </b-container>
+    <b-modal id="modalHistory"  modal-class="modalHistory" content-class="modalBody" body-class="questHeader" hide-footer hide-header>
+
+        Историческая справка
+
+        <div class="close" @click="$bvModal.hide('modalHistory')">&times;</div>
+
+      <b-container class="p-0 mt-4 text-left">
+        <b-row>
+          <b-col cols="12" class="imageHistory">
+          </b-col>
+
+          <b-col cols="12" class="mt-3">
+            <p class="primaryText">
+              Медный всадник
+            </p>
+
+            <p class="primaryTextS">
+              Медный всадник, символ Санкт-Петербурга, на самом деле изготовлен не из меди, а из бронзы. Монумент был открыт в 1782 году по велению императрицы Екатерины Второй. В тот год отмечался 100-летний юбилей вступления на престол юного Петра.
+            </p>
+
+            <p class="description">Это скоро закончится</p>
+          </b-col>
+          <b-button variant="primary" class="primary" @click="$bvModal.hide('modalHistory')">Вперед</b-button>
+
+        </b-row>
+      </b-container>
+
+    </b-modal>
+
+    <b-modal id="modalCheck"  modal-class="modalCheck" content-class="modalBody" body-class="questHeader" hide-footer hide-header>
+
+      Историческая справка
+
+      <div class="close" @click="$bvModal.hide('modalCheck')">&times;</div>
+
+      <b-container class="p-0 mt-4 text-left">
+        <b-row>
+
+          <b-col cols="12" class="mt-3">
+            <p class="primaryText">
+              Медный всадник
+            </p>
+
+            <p class="primaryTextS">
+              Медный всадник, символ Санкт-Петербурга, на самом деле изготовлен не из меди, а из бронзы. Монумент был открыт в 1782 году по велению императрицы Екатерины Второй. В тот год отмечался 100-летний юбилей вступления на престол юного Петра.
+            </p>
+
+            <p class="description">Это скоро закончится</p>
+          </b-col>
+          <b-button variant="primary" class="primary position-relative" @click="$bvModal.hide('modalCheck')">Вперед</b-button>
+
+        </b-row>
+      </b-container>
+
+    </b-modal>
   </div>
+
+
+
 </template>
 
 <script>
@@ -165,7 +221,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #map {
   width: 100%;
   height: calc(100vh - 60px);
@@ -195,7 +251,62 @@ export default {
 .primary {
   position: absolute;
   bottom: 10px;
-  z-index: 1100;
+  z-index: 100;
   width: calc(100% - 20px);
+}
+
+.modalHistory {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.25);
+  border-radius: 24px 24px 0px 0px;
+  margin-top: 60px;
+  transition: all 0.5s ease-out;
+  height: calc( 100vh - 60px);
+}
+
+.modalBody {
+  background: none;
+  border: none;
+}
+
+.questHeader {
+  text-align: center;
+  font-family: SF Pro Text, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: 0.06px;
+  width: 100%;
+  height: calc( 100% - 70px);
+  color: #818C99;
+}
+
+.close {
+  background: rgba(129, 140, 153, .12);
+  color: #818C99;
+  border-radius: 50px;
+  padding: 0 5px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.imageHistory {
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  min-height: 250px;
+  max-height: 320px;
+  background: url("https://cdn5.vedomosti.ru/image/2019/9e/187n18/original-1las.jpg");
+  background-size: cover;
+}
+
+.modalCheck {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.25);
+  border-radius: 24px 24px 0px 0px;
+  margin-top: calc(50vh);
+  transition: all 0.5s ease-out;
+  height: calc( 50vh);
 }
 </style>

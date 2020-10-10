@@ -49,4 +49,36 @@ export default {
   line-height: 20px;
   color: #FFFFFF;
 }
+
+.primaryText {
+  font-family: SF Pro Text, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: -0.154px;
+  color: #2F2F2F;
+}
+
+.description {
+  font-family: SF Pro Text, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.06px;
+  color: #818C99;
+  margin-bottom: 24px;
+}
+
+.primaryTextS {
+  font-family: SF Pro Text, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+
+  letter-spacing: 0.06px;
+  color: #3C3C3C;
+}
 </style>
