@@ -66,12 +66,8 @@
 
         </b-row>
       </b-container>
-
     </b-modal>
   </div>
-
-
-
 </template>
 
 <script>
@@ -224,22 +220,11 @@ export default {
 <style>
 #map {
   width: 100%;
-  height: calc(100vh - 60px);
+  height: 100vh;
+  padding-bottom: 100px;
   display: flex;
   flex-wrap: wrap;
-}
-
-.header {
-  font-family: 'TT Commons', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 21px;
-  line-height: 26px;
-  color: #000000;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
 .backButton {
@@ -257,11 +242,11 @@ export default {
 
 .modalHistory {
   background: #FFFFFF;
-  box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.25);
-  border-radius: 24px 24px 0px 0px;
+  box-shadow: 0 4px 64px rgba(0, 0, 0, 0.25);
+  border-radius: 24px 24px 0 0;
   margin-top: 60px;
   transition: all 0.5s ease-out;
-  height: calc( 100vh - 60px);
+  height: calc( 100vh - 60px );
 }
 
 .modalBody {
@@ -276,9 +261,8 @@ export default {
   font-weight: 600;
   font-size: 18px;
   line-height: 18px;
-  letter-spacing: 0.06px;
   width: 100%;
-  height: calc( 100% - 70px);
+  height: calc( 100% - 70px );
   color: #818C99;
 }
 
@@ -290,10 +274,11 @@ export default {
   position: absolute;
   top: 10px;
   right: 10px;
+  cursor: pointer;
 }
 
 .imageHistory {
-  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
   border-radius: 24px;
   min-height: 250px;
   max-height: 320px;
@@ -303,10 +288,10 @@ export default {
 
 .modalCheck {
   background: #FFFFFF;
-  box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.25);
-  border-radius: 24px 24px 0px 0px;
-  margin-top: calc(50vh);
+  box-shadow: 0 4px 64px rgba(0, 0, 0, 0.25);
+  border-radius: 24px 24px 0 0;
+  margin-top: calc(40vh);
   transition: all 0.5s ease-out;
-  height: calc( 50vh);
+  height: calc(60vh);
 }
 </style>
