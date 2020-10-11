@@ -1,5 +1,5 @@
 <template>
-<div id="Putin">
+<div id="quest">
   <b-container class="mt-5">
     <b-row>
 
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-name: "Quest"
+  name: "Quest"
 }
 </script>
 

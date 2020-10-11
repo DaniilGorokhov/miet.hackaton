@@ -37,6 +37,23 @@ export default {
 </script>
 
 <style>
+img {
+  user-select: none;
+}
+
+.header {
+  font-family: 'TT Commons', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 26px;
+  color: #000000;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .primary {
   height: 60px;
   background: #017AFF;
@@ -56,7 +73,6 @@ export default {
   font-weight: 600;
   font-size: 22px;
   line-height: 26px;
-  letter-spacing: -0.154px;
   color: #2F2F2F;
 }
 
@@ -66,7 +82,6 @@ export default {
   font-weight: 500;
   font-size: 14px;
   line-height: 14px;
-  letter-spacing: 0.06px;
   color: #818C99;
   margin-bottom: 24px;
 }
@@ -78,7 +93,6 @@ export default {
   font-size: 14px;
   line-height: 20px;
 
-  letter-spacing: 0.06px;
   color: #3C3C3C;
 }
 </style>

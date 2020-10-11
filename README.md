@@ -1,5 +1,10 @@
 # miet.hackaton
 
+Before run application you need to start json-server (in project, in cmd):
+```
+json-server --watch db.json
+```
+
 ## Project setup
 ```
 yarn install
