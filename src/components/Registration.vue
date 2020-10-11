@@ -86,14 +86,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .registrationFrom {
   padding: 0 12px;
   min-height: calc(100vh - 60px);
   position: relative;
 }
 
-.registrationFrom input, .registrationFrom select, .custom-file-label {
+.registrationFrom input, .registrationFrom select, .custom-file-label, .registrationFrom textarea {
   background-color: #F2F3F5;
   color: #818C99;
 }

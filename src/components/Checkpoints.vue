@@ -36,7 +36,7 @@
       </b-col>
     </b-col>
 
-    <div class="p-2 w-100 create">
+    <router-link class="p-2 w-100 create" to="/checkpoints/settings">
       <div class="cardQuest d-flex justify-content-between align-items-center createButton">
         <div class="topics">
           <span class="primaryText">Соревнования</span>
@@ -47,10 +47,10 @@
           </svg>
         </div>
       </div>
-    </div>
+    </router-link>
 
 
-    <b-button  variant="primary" class="primary">
+    <b-button  variant="primary" class="primary createButton m-0" style="bottom: 10px">
       Сохранить
     </b-button>
 
@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 .blue {
   color: #017AFF;
@@ -81,6 +81,7 @@ export default {
 .createButton {
   position: absolute;
   bottom: 100px;
+  left: 10px;
   width: calc(100% - 20px);
   border-radius: 12px;
 }
