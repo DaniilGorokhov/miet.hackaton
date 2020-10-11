@@ -13,7 +13,7 @@
 
       <b-col cols="12" class="description mt-3">Квесты</b-col>
       <b-col cols="6" class="d-flex flex-column justify-content-between p-2">
-        <router-link class="text-decoration-none" to="/bestPlaces">
+        <router-link class="text-decoration-none" to="/competetive">
           <div class="routerLinkProfile cardQuest">
             <b-avatar class="mb-4" src="https://sun9-37.userapi.com/impg/c858120/v858120820/15c45c/Z7knSkWXXVw.jpg?size=200x0&quality=90&crop=48,19,264,264&sign=f81b13103a6b3258bf71d01989dd4aff&ava=1"></b-avatar>
 
@@ -27,7 +27,7 @@
       <b-col cols="6" class="d-flex flex-column justify-content-between p-2">
         <router-link class="text-decoration-none" to="/bestPlaces">
           <div class="routerLinkProfile cardQuest">
-            <img class="mb-4" src="@/assets/walkingMan.svg" alt="walkingMan">
+            <img class="mb-4" height="40" width="40" src="@/assets/walkingMan.svg" alt="walkingMan">
 
             <p class="primaryTextQuest">Прогулка</p>
 
@@ -49,9 +49,9 @@
       </b-col>
 
       <b-col cols="6" class="d-flex flex-column justify-content-between p-2">
-        <router-link class="text-decoration-none" to="/bestPlaces">
+        <router-link class="text-decoration-none" to="/create">
           <div class="routerLinkProfile cardQuest">
-            <img class="mb-4" src="@/assets/createQuest.svg" alt="createQuest">
+            <img class="mb-4" height="40" width="40" src="@/assets/createQuest.svg" alt="createQuest">
 
             <p class="primaryTextQuest">Создать квест</p>
 
