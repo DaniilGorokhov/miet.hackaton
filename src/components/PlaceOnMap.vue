@@ -238,6 +238,10 @@ export default {
   overflow: hidden;
 }
 
+.primary {
+  margin: 0 12px!important;
+}
+
 .extraPrimary {
   position: relative;
   border: none;

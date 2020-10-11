@@ -15,11 +15,11 @@
     </b-container>
     <b-modal id="modalHistory"  modal-class="modalHistory" content-class="modalBody" body-class="questHeader" hide-footer hide-header>
 
-        Историческая справка
+      Историческая справка
 
-        <div class="close" @click="$bvModal.hide('modalHistory')">&times;</div>
+      <div class="close" @click="$bvModal.hide('modalHistory')">&times;</div>
 
-      <b-container class="p-0 mt-4 text-left">
+      <b-container class="p-0 mt-4 text-left" style="height: 500px;">
         <b-row>
           <b-col cols="12" class="imageHistory">
           </b-col>
@@ -35,7 +35,7 @@
 
             <p class="description">Это скоро закончится</p>
           </b-col>
-          <b-button variant="primary" class="primary" @click="$bvModal.hide('modalHistory')">Вперед</b-button>
+          <b-button variant="primary" class="primary1 addPrimary" @click="$bvModal.hide('modalHistory')">Вперед</b-button>
 
         </b-row>
       </b-container>
@@ -44,12 +44,12 @@
 
     <b-modal id="modalCheck"  modal-class="modalCheck" content-class="modalBody" body-class="questHeader" hide-footer hide-header>
 
-      Историческая справка
+      Чекпоинт
 
       <div class="close" @click="$bvModal.hide('modalCheck')">&times;</div>
 
-      <b-container class="p-0 mt-4 text-left">
-        <b-row>
+      <b-container class="p-0 mt-4 text-left" style="height: 370px">
+        <b-row style="height: 370px;">
 
           <b-col cols="12" class="mt-3">
             <p class="primaryText">
@@ -60,9 +60,15 @@
               Медный всадник, символ Санкт-Петербурга, на самом деле изготовлен не из меди, а из бронзы. Монумент был открыт в 1782 году по велению императрицы Екатерины Второй. В тот год отмечался 100-летний юбилей вступления на престол юного Петра.
             </p>
 
-            <p class="description">Это скоро закончится</p>
+            <div class="liker">
+
+              <b-button variant="link" class="like">+</b-button>
+              <b-button variant="link" class="like border-right-0">-</b-button>
+
+            </div>
+
           </b-col>
-          <b-button variant="primary" class="primary position-relative" @click="$bvModal.hide('modalCheck')">Вперед</b-button>
+          <b-button variant="primary" class="primary1 position-relative" @click="$bvModal.hide('modalCheck')">Вперед</b-button>
 
         </b-row>
       </b-container>
@@ -233,11 +239,25 @@ export default {
   left: 8px;
 }
 
-.primary {
+.primary1 {
   position: absolute;
   bottom: 10px;
-  z-index: 100;
+  z-index: 200;
   width: calc(100% - 20px);
+  height: 60px;
+  background: #017AFF;
+  border-radius: 12px;
+  margin: 0 12px;
+  font-family: SF Pro Text, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.addPrimary {
+  margin: 0 12px;
 }
 
 .modalHistory {
@@ -293,5 +313,17 @@ export default {
   margin-top: calc(40vh);
   transition: all 0.5s ease-out;
   height: calc(60vh);
+}
+
+.liker {
+  background: rgba(1, 122, 255, 0.2);
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.like {
+  font-size: 16px;
+  border-right: 1px solid #89B8EE;
+  text-decoration: none!important;
 }
 </style>

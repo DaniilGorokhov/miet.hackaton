@@ -19,15 +19,12 @@
         />
       </b-form-group>
 
-      <b-form-group id="input-group-3" label="Теги" label-for="input-3">
-        <b-form-input
-            id="input-3"
-            type="text"
-            v-model="tags"
-            placeholder="Введите название тегов или тем"
-            required
-        ></b-form-input>
-      </b-form-group>
+      <label class="grayLabel" for="tags">Выберите интересующие вас темы</label>
+      <input type="text" style="display: none" id="tags">
+      <br>
+      <b-button class="tag mb-2" v-for="(tag, index) in tags" :id="'tag' + index" :key="index" @click="changeTag(index)">
+        {{ tag }}
+      </b-button>
 
       <b-form-group id="description" label="Описание" label-for="input-4">
         <b-form-textarea
@@ -55,7 +52,7 @@ export default {
       questname: "",
       description: "",
       team: null,
-      tags: "",
+      tags: ["IT", "Дизайн", "История", "Кулинария"]
     }
   },
   methods: {
