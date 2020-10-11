@@ -14,6 +14,7 @@ import bestPlaces from "@/components/bestPlaces";
 import Quest from "@/components/Quest";
 import geoquestion from "@/components/geoquestion";
 import GeoPictures from "@/components/GeoPictures";
+import createGeoPicture from "@/components/createGeoPicture";
 
 Vue.config.productionTip = false
 
@@ -30,7 +31,8 @@ const routes = [
   { path: '/competetive', component: Competive },
   { path: '/quest', component: Quest },
   { path: '/geoquestion', component: geoquestion },
-  { path: '/geo-pictures', component: GeoPictures }
+  { path: '/geo-pictures', component: GeoPictures },
+  { path: '/createGeoPicture', component: createGeoPicture },
 ];
 
 const router = new VueRouter({

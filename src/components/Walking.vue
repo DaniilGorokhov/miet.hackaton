@@ -10,10 +10,9 @@
         </router-link>
       </header>
 
-
       <div id="mapContainer" class="w-100 h-100" ref="hereMap"></div>
     </b-container>
-    <b-modal id="modalHistory"  modal-class="modalHistory" content-class="modalBody" body-class="questHeader" hide-footer hide-header>
+    <b-modal id="modalHistory" modal-class="modalHistory" content-class="modalBody" body-class="questHeader" hide-footer hide-header>
 
       Историческая справка
 

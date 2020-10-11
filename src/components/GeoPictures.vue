@@ -18,13 +18,11 @@
 
         <p class="description">Этот велосипедист сможет доехать до дома благодаря тебе!</p>
 
-
       </b-col>
       <b-col cols="12" class="imageHistory"></b-col>
     </b-col>
 
-    <b-button variant="primary" class="primary"><router-link to="/" class="text-light">Попробовать самому</router-link></b-button>
-
+    <b-button variant="primary" class="primary"><router-link to="/createGeoPicture" class="text-light">Попробовать самому</router-link></b-button>
 
   </b-row>
 </b-container>
