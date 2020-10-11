@@ -86,7 +86,7 @@ name: "LK"
 }
 </script>
 
-<style scoped>
+<style>
 .primaryText {
   font-family: SF Pro Text, sans-serif;
   font-style: normal;

@@ -48,6 +48,8 @@ export default {
   font-size: 18px;
   line-height: 20px;
   color: #FFFFFF;
+  width: calc(100% - 20px);
+
 }
 
 .primaryText {
