@@ -37,7 +37,7 @@
       </b-col>
 
       <b-col cols="6" class="d-flex flex-column justify-content-between p-2">
-        <router-link class="text-decoration-none" to="/bestPlaces">
+        <router-link class="text-decoration-none" to="/geoquestion">
           <div class="routerLinkProfile cardQuest">
             <b-avatar class="mb-4" src="https://sun9-37.userapi.com/impg/c858120/v858120820/15c45c/Z7knSkWXXVw.jpg?size=200x0&quality=90&crop=48,19,264,264&sign=f81b13103a6b3258bf71d01989dd4aff&ava=1"></b-avatar>
 
@@ -83,6 +83,19 @@
             <p class="primaryText text-light">Персональный маршрут</p>
 
             <p class="description text-light mb-3">Найдите для себя что-то новое</p>
+          </div>
+        </router-link>
+      </b-col>
+
+      <b-col cols="12" class="description mt-3">Гео-рисунки</b-col>
+      <b-col cols="12" class="d-flex flex-column justify-content-between p-2">
+        <router-link class="text-decoration-none" to="/geo-pictures">
+          <div class="routerLinkProfile cardQuest w-100">
+            <img class="mb-4" src="@/assets/personalQuests.svg" alt="personalQuests">
+
+            <p class="primaryText ">Гео-рисунки</p>
+
+            <p class="description mb-3">Получи за баллы команды гео-рисунки</p>
           </div>
         </router-link>
       </b-col>

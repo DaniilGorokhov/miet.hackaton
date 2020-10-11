@@ -12,6 +12,8 @@ import CheckSettings from "@/components/CheckSettings";
 import CreateTask from "@/components/CreateTask";
 import bestPlaces from "@/components/bestPlaces";
 import Quest from "@/components/Quest";
+import geoquestion from "@/components/geoquestion";
+import GeoPictures from "@/components/GeoPictures";
 
 Vue.config.productionTip = false
 
@@ -26,7 +28,9 @@ const routes = [
   { path: '/checkpoints/tasks', component: CreateTask },
   { path: '/placeOnMap', component: PlaceOnMap },
   { path: '/competetive', component: Competive },
-  { path: '/quest', component: Quest }
+  { path: '/quest', component: Quest },
+  { path: '/geoquestion', component: geoquestion },
+  { path: '/geo-pictures', component: GeoPictures }
 ];
 
 const router = new VueRouter({

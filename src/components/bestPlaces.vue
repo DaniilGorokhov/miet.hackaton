@@ -2,7 +2,7 @@
   <div id="map">
     <b-container fluid class="p-0">
       <div class="navBar">
-        <svg width="20" height="28" class="backButton" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg @click="$router.push('/')" style="cursor: pointer;" width="20" height="28" class="backButton" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15.4393 12.9393L6.99998 4.5C6.4477 3.94771 5.55227 3.94771 4.99998 4.5C4.4477 5.05228 4.4477 5.94771 4.99998 6.5L12.5 14L4.99998 21.5C4.4477 22.0523 4.4477 22.9477 4.99998 23.5C5.55227 24.0523 6.4477 24.0523 6.99998 23.5L15.4393 15.0607C16.0251 14.4749 16.0251 13.5251 15.4393 12.9393Z" fill="#3F8AE0"/>
         </svg>
         <img class="infoBtn" @click="showPopup" src="../assets/info.svg" alt="info">
@@ -101,7 +101,7 @@ export default {
             marker = new H.map.Marker(coords, {icon: icon});
 
           // Add the marker to the map and center the map at the location of the marker:
-          marker.setData(`<div><a href="http://localhost:8080/#/quest">${place.title}</a></div><div>Рейтинг: ${place.rating}</div>`);
+          marker.setData(`<div><a href="http://localhost:8080/#/quest?id=${place.id}">${place.title}</a></div><div>Рейтинг: ${place.rating}</div>`);
           group.addObject(marker);
         }
       });
@@ -141,7 +141,7 @@ export default {
       this.userPosition = coords;
       this.map.setCenter(coords);
 
-      let svgMarkup = '<svg width="28" height="48" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="13" width="2" height="11" fill="url(#paint0_linear)"/> <circle cx="7" cy="7" r="7" fill="url(#paint1_radial)"/> <defs> <linearGradient id="paint0_linear" x1="7" y1="13" x2="7" y2="24" gradientUnits="userSpaceOnUse"> <stop stop-color="#5AA9FF"/> <stop offset="0.341281" stop-color="#B5D8FF"/> <stop offset="1" stop-color="white"/> </linearGradient><radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(7.875 5.25) rotate(95.7106) scale(8.79364 9.53555)"><stop stop-color="#BBDCFF"/> <stop offset="0.537828" stop-color="#208BFF"/> </radialGradient></defs> </svg>';
+      let svgMarkup = '<svg style="box-shadow: 0 0 4px rgba(0, 0, 0, 0.1)" width="28" height="48" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="13" width="2" height="11" fill="url(#paint0_linear)"/> <circle cx="7" cy="7" r="7" fill="url(#paint1_radial)"/> <defs> <linearGradient id="paint0_linear" x1="7" y1="13" x2="7" y2="24" gradientUnits="userSpaceOnUse"> <stop stop-color="#5AA9FF"/> <stop offset="0.341281" stop-color="#B5D8FF"/> <stop offset="1" stop-color="white"/> </linearGradient><radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(7.875 5.25) rotate(95.7106) scale(8.79364 9.53555)"><stop stop-color="#BBDCFF"/> <stop offset="0.537828" stop-color="#208BFF"/> </radialGradient></defs> </svg>';
 
       // Create an icon, an object holding the latitude and longitude, and a marker:
       let icon = new H.map.Icon(svgMarkup),

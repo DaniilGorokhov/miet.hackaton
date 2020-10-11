@@ -25,10 +25,10 @@
 
 <script>
 export default {
-name: "Competive",
+  name: "Competive",
   data() {
     return {
-      tags: ["IT", "Дизайн", "История", "Кулинария", "sdfs", "qdwqwdqwdq", "edqwdqwd"]
+      tags: ["IT", "Дизайн", "История", "Высшая математика", "Кулинария", "Архитектура", "Танцы", "Покемоны"]
     }
   },
   methods: {
@@ -48,5 +48,7 @@ name: "Competive",
 </script>
 
 <style scoped>
-
+.tag:not(.activeTag) {
+  color: #818C99;
+}
 </style>

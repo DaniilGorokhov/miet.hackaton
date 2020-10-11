@@ -2,16 +2,16 @@
 <div id="quest">
   <div id="map">
     <div class="navBar">
-      <svg width="20" height="28" class="backButton" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15.4393 12.9393L6.99998 4.5C6.4477 3.94771 5.55227 3.94771 4.99998 4.5C4.4477 5.05228 4.4477 5.94771 4.99998 6.5L12.5 14L4.99998 21.5C4.4477 22.0523 4.4477 22.9477 4.99998 23.5C5.55227 24.0523 6.4477 24.0523 6.99998 23.5L15.4393 15.0607C16.0251 14.4749 16.0251 13.5251 15.4393 12.9393Z" fill="#3F8AE0"/>
-      </svg>
+        <svg width="20" height="28" class="backButton" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.4393 12.9393L6.99998 4.5C6.4477 3.94771 5.55227 3.94771 4.99998 4.5C4.4477 5.05228 4.4477 5.94771 4.99998 6.5L12.5 14L4.99998 21.5C4.4477 22.0523 4.4477 22.9477 4.99998 23.5C5.55227 24.0523 6.4477 24.0523 6.99998 23.5L15.4393 15.0607C16.0251 14.4749 16.0251 13.5251 15.4393 12.9393Z" fill="#3F8AE0"/>
+        </svg>
       <img class="infoBtn" @click="showPopup" src="../assets/questBtn.svg" alt="info">
     </div>
 
     <div class="popupHint">
       <div class="close" @click="closePopup">&times;</div>
 
-      <b-col cols="12" class="mt-3" style="height: 400px;">
+      <b-col cols="12" class="mt-3">
         <p class="primaryText">
           Медный всадник
         </p>
@@ -35,7 +35,7 @@
             <b-col cols="4">
               <div class="number">111</div>
               <div class="description">
-                метров о цели
+                метров до цели
               </div>
             </b-col>
             <b-col cols="4">
@@ -53,64 +53,32 @@
           </b-row>
         </div>
 
-        <b-button class="primary extraPrimary">Подтвердить геолокацию</b-button>
-        <b-button variant="link" class="logOut btn-block">Выйти из квеста</b-button>
+        <b-button variant="link" class="btn-block text-decoration-none logOut"><router-link to="/">Выйти из квеста</router-link></b-button>
       </b-col>
     </div>
 
-    <b-modal id="modalCheck"  modal-class="modalCheck" content-class="modalBody" body-class="questHeader" hide-footer hide-header>
-
-      Чекпоинт
-
-      <div class="close" @click="$bvModal.hide('modalCheck')">&times;</div>
-
-      <b-container class="p-0 mt-4 text-left" style="height: 370px">
-        <b-row style="height: 370px;">
-
-          <b-col cols="12" class="mt-3">
-            <p class="primaryText">
-              Медный всадник
-            </p>
-
-            <p class="primaryTextS">
-              Медный всадник, символ Санкт-Петербурга, на самом деле изготовлен не из меди, а из бронзы. Монумент был открыт в 1782 году по велению императрицы Екатерины Второй. В тот год отмечался 100-летний юбилей вступления на престол юного Петра.
-            </p>
-
-            <div class="liker">
-
-              <b-button variant="link" class="like">+</b-button>
-              <b-button variant="link" class="like border-right-0">-</b-button>
-
-            </div>
-
-          </b-col>
-          <b-button variant="primary" class="primary1 position-relative" @click="$bvModal.hide('modalCheck')">Вперед</b-button>
-
-        </b-row>
-      </b-container>
-    </b-modal>
-
     <div class="popupHint2 popupHint">
-      <div class="close" @click="closePopup">&times;</div>
+      <div class="close" @click="closePopup2">&times;</div>
 
       <b-col cols="12" class="mt-3" style="height: 250px;">
         <p class="primaryText">
-          Медный всадник
+          {{ bestPlaces[id].title || 'Медный всадник' }}
         </p>
 
         <p class="primaryTextS">
-          Медный всадник, символ Санкт-Петербурга, на самом деле изготовлен не из меди, а из бронзы. Монумент был открыт в 1782 году по велению императрицы Екатерины Второй. В тот год отмечался 100-летний юбилей вступления на престол юного Петра.
+          {{ bestPlaces[id].desc || 'Медный всадник, символ Санкт-Петербурга, на самом деле изготовлен не из меди, а из бронзы. Монумент был открыт в 1782 году по велению императрицы Екатерины Второй. В тот год отмечался 100-летний юбилей вступления на престол юного Петра.' }}
         </p>
 
         <div class="liker">
 
-          <b-button variant="link" class="like">+</b-button>
-          <b-button variant="link" class="like border-right-0">-</b-button>
+          <b-button variant="link" class="like" @click="rated = true">+</b-button>
+          <b-button variant="link" class="like border-right-0" @click="rated = true">-</b-button>
 
         </div>
+        <p class="description mt-1" v-if="rated">Спасибо за оценку</p>
       </b-col>
 
-      <b-button variant="primary" class="primary position-relative" @click="closePopup2">Вперед</b-button>
+      <b-button variant="primary" class="primary position-relative" @click="newRoute">Подтвердить геолокацию</b-button>
     </div>
     <div id="mapContainer" class="w-100 h-100" ref="hereMap"></div>
   </div>
@@ -118,6 +86,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "Quest",
   data() {
@@ -126,7 +96,11 @@ export default {
       app_id: 'khnsdv2IWZS2FuTdJCbH',
       apikey: "kXJLOsUqIDBiL9E3YeHpDqVOX2WOENM2yOAkzd-yq78",
       center: { lat: 40.730610, lng: -73.935242 },
-      userPosition: {}
+      userPosition: {},
+      tmp: null,
+      bestPlaces: ['test'],
+      id: 0,
+      rated: false
     };
   },
   async mounted() {
@@ -141,6 +115,16 @@ export default {
     navigator.geolocation.getCurrentPosition(this.setCenter);
 
     this.showPopup2();
+
+    axios
+      .get("http://localhost:3000/bestPlaces")
+      .then(response => {
+        this.bestPlaces = response.data;
+        if ( window.location.hash.includes("?") ) {
+          this.id = window.location.hash.substr(window.location.hash.indexOf('=') + 1);
+          console.log("id ", this.id);
+        }
+      });
   },
   methods: {
     initializeHereMap() {
@@ -188,7 +172,7 @@ export default {
 
       this.createRoute();
     },
-    createRoute() {
+    createRoute(latOffset = 0.1, lngOffset = 0.05) {
       const H = window.H;
 
       // Create the parameters for the routing request:
@@ -198,7 +182,7 @@ export default {
         // The start point of the route:
         'origin': `${this.userPosition.lat},${this.userPosition.lng}`,
         // The end point of the route:
-        'destination': `${this.userPosition.lat + 0.1},${this.userPosition.lng + 0.05}`,
+        'destination': `${this.userPosition.lat + latOffset},${this.userPosition.lng + lngOffset}`,
         // Include the route shape in the response
         'return': 'polyline',
         'apikey': 'kycyxKwH1RbOQGKq2zUMfYls5T6mOzUXsTVAoCKYvLg'
@@ -244,7 +228,11 @@ export default {
             let icon = new H.map.Icon(svgMarkup);
             let endMarker = new H.map.Marker(section.arrival.place.location, {icon: icon});
 
+            if (this.tmp) {
+              this.map.removeObjects(this.tmp);
+            }
             // Add the route polyline and the two markers to the map:
+            this.tmp = [routeLine, endMarker];
             this.map.addObjects([routeLine, endMarker]);
 
             // Set the map's viewport to make the whole route visible:
@@ -267,7 +255,7 @@ export default {
     },
     closePopup() {
       let popup = document.querySelector(".popupHint");
-      popup.style.bottom = "-500px";
+      popup.style.bottom = "-450px";
     },
     showPopup() {
       let popup = document.querySelector(".popupHint");
@@ -275,11 +263,14 @@ export default {
     },
     closePopup2() {
       let popup = document.querySelectorAll(".popupHint")[1];
-      popup.style.bottom = "-500px";
+      popup.style.bottom = "-350px";
     },
     showPopup2() {
       let popup = document.querySelectorAll(".popupHint")[1];
       popup.style.bottom = "0";
+    },
+    newRoute() {
+      this.createRoute(0.15, 0.2);
     }
   }
 }
@@ -296,9 +287,9 @@ export default {
 
 .popupHint {
   position: absolute;
-  bottom: -500px;
+  bottom: -450px;
   background-color: #fff;
-  height: 500px;
+  height: 450px;
   width: 100%;
   z-index: 1000;
   box-shadow: 0 4px 64px rgba(0, 0, 0, 0.25);
@@ -323,6 +314,10 @@ export default {
   height: 64px;
   display: flex;
   align-items: center;
+}
+
+.backBlock {
+  top: calc(50% - 14px);
 }
 
 .backButton {
@@ -350,26 +345,26 @@ export default {
   border: none;
 }
 
-.extraPrimary {
-  margin: 0!important;
-}
-
 .logOut {
   font-family: SF Pro Text, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  margin-top: 56px;
+  margin-top: 16px;
   line-height: 20px;
   border: none;
   background: none;
-  color: #FF5F54;
   text-decoration: none;
 }
 
 .logOut:active, .logOut:focus {
   outline: none;
   box-shadow: 0 0 4px #FF5F54;
+}
+
+.logOut a {
+  text-decoration: none;
+  color: #FF5F54;
 }
 
 .liker {

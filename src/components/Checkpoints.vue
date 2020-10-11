@@ -21,16 +21,19 @@
 
     <b-col cols="12" class="p-0" v-else>
       <b-col cols="12" class="p-2">
-        <div class="cardQuest w-100 d-flex justify-content-between align-items-center my-2" v-for="(checkpoint, index) in checkpoints" :key="index">
-          <div class="topics">
-            <p class="primaryText">Соревнования</p>
-            <p class="description mb-0">Состязания команд</p>
+        <div class="cardQuest w-100 my-2" v-for="(checkpoint, index) in checkpoints" :key="index">
+          <router-link class="d-flex justify-content-between align-items-center" to="/">
+          <div class="topics" v-if="checkpoints.length">
+            <p class="primaryText">{{ checkpoint ? checkpoint.address.label : 'Медный всадник' }}</p>
+            <p class="description mb-0">{{ index + 1 }} чекпоинт</p>
           </div>
+
           <div class="goTo">
             <svg width="20" height="28" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15.4393 12.9393L6.99998 4.5C6.4477 3.94771 5.55227 3.94771 4.99998 4.5C4.4477 5.05228 4.4477 5.94771 4.99998 6.5L12.5 14L4.99998 21.5C4.4477 22.0523 4.4477 22.9477 4.99998 23.5C5.55227 24.0523 6.4477 24.0523 6.99998 23.5L15.4393 15.0607C16.0251 14.4749 16.0251 13.5251 15.4393 12.9393Z" fill="#3F8AE0"/>
+                <path d="M15.4393 12.9393L6.99998 4.5C6.4477 3.94771 5.55227 3.94771 4.99998 4.5C4.4477 5.05228 4.4477 5.94771 4.99998 6.5L12.5 14L4.99998 21.5C4.4477 22.0523 4.4477 22.9477 4.99998 23.5C5.55227 24.0523 6.4477 24.0523 6.99998 23.5L15.4393 15.0607C16.0251 14.4749 16.0251 13.5251 15.4393 12.9393Z" fill="#3F8AE0"/>
             </svg>
           </div>
+          </router-link>
         </div>
       </b-col>
     </b-col>
@@ -38,7 +41,7 @@
     <router-link class="p-2 w-100 create" to="/checkpoints/settings">
       <div class="cardQuest d-flex justify-content-between align-items-center createButton">
         <div class="topics">
-          <span class="primaryText">Соревнования</span>
+          <span class="primaryText">Создать чекпоинт</span>
         </div>
         <div class="goTo">
           <svg width="20" height="28" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,10 +62,8 @@
 <script>
 export default {
   name: "Checkpoints",
-  data() {
-    return {
-      checkpoints:[1]
-    }
+  props: {
+    checkpoints: Array
   }
 }
 </script>

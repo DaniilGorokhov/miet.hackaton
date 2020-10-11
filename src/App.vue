@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view @oncreatecheckpoint="checkpointsCreate" :checkpoints="checkpoints" :points="points"></router-view>
   </div>
 </template>
 
@@ -17,15 +17,21 @@ Vue.use(BootstrapVue);
 
 export default {
   name: 'app',
-  components: {
-    // HereMap
-  },
   data() {
     return {
-      center:{
+      center: {
         lat: 40.730610,
         lng: -73.935242
-      }
+      },
+      checkpoints: [],
+      points: 3621
+    }
+  },
+  methods: {
+    checkpointsCreate(data) {
+      this.checkpoints.push(data);
+      console.log(data);
+      this.$router.push("/checkpoints/tasks");
     }
   },
   watch: {

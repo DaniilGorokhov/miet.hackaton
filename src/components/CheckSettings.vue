@@ -34,13 +34,13 @@
       </div>
 
       <div class="settingBorder">
-          <b-form-group id="input-group-1" label="Имя" label-for="input-1" >
+          <b-form-group id="input-group-1" label="Имя" label-for="input-1">
             <b-form-input
                 id="input-1"
                 v-model="address"
                 type="text"
                 required
-                placeholder="Укажите точные адрес"
+                placeholder="Укажите точный адрес"
                 class="mx-2"
             />
           </b-form-group>
@@ -53,7 +53,7 @@
         <router-link class="p-2 w-100" to="/placeOnMap" id="mapSetting">
           <div class="d-flex flex-row justify-content-between align-items-center ml-2">
             <div class="topics h-auto">
-              <span class="primaryTextS"><b>Соревнования</b></span>
+              <span class="primaryTextS"><b>Выбрать точку на карте</b></span>
             </div>
             <div class="goTo">
               <svg width="20" height="28" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,30 +73,40 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
 name: "CheckSettings",
   data() {
     return {
-      address:""
+      address: "",
+      geoObj: null
     }
   },
   methods: {
     Checkpoint() {
-      this.$router.push("/checkpoints/tasks");
+      navigator.geolocation.getCurrentPosition(this.getCoords);
+    },
+    getCoords({coords: {latitude, longitude}}) {
+      let address = new URL('https://discover.search.hereapi.com/' + this.address);
+      address = address.href.substr(address.href.indexOf(".com/") + 5);
+
+      axios
+        .get(`https://discover.search.hereapi.com/v1/discover?at=${latitude},${longitude}&q=${address}&apikey=kycyxKwH1RbOQGKq2zUMfYls5T6mOzUXsTVAoCKYvLg`)
+        .then(response => {
+          this.geoObj = response.data.items[0];
+          this.$emit('oncreatecheckpoint', this.geoObj)
+        });
     }
   }
-
 }
 </script>
 
 <style>
-
 .settingBorder {
   border-bottom: 1px solid #DFDFDF;
   width: 100%;
   padding-bottom: 10px;
   margin-bottom: 16px;
 }
-
 </style>
